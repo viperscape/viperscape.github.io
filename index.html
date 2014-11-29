@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="css/screen.css">
+<link rel="stylesheet" href="css/template.css">
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-xs-12 col-md-8">
+      <div class="container-fluid">
+	<p>blah blah bloggiest blog</p>
+
+<pre><code>(defun rust-save-compile-and-run-this ()
+  (interactive)
+  (save-buffer)
+  (compile
+   (format "rustc %s && %s"
+       (buffer-file-name)
+       (file-name-sans-extension (buffer-file-name)))))
+
+(defun rust-save-compile-and-run ()
+  (interactive)
+  (save-buffer)
+
+  (if (locate-dominating-file (buffer-file-name) "Cargo.toml")
+      (compile "cargo run")
+    (rust-save-compile-and-run-this)))
+
+
+(add-hook 'rust-mode-hook
+      (lambda ()
+        (define-key rust-mode-map (kbd "<f5>") 'rust-save-compile-and-run)))
+(add-hook 'rust-mode-hook
+      (lambda ()
+        (define-key rust-mode-map (kbd "<C-f5>") 'rust-save-compile-and-run-this)))</code></pre>
+
+<p>this: <a href="posts/2014-08-24-my-first-blogpost.html">first post, post101!</a></p>
+
+<p>and this chris</p>
+
+      </div>
+    </div>
+    <div class="col-xs-3 col-md-2">
+      <div class="container-fluid">
+	<h3>links</h3>
+	<a href="index.html">home</a>
+      </div>
+
+      <div class="container-fluid">
+	<h3>posts</h3>
+	<ul><li>post101</li><li>post102</li></ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="css/solarized_dark.css">
+<script src="js/highlight.pack.js" type="text/javascript"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+
+</html>

@@ -1,0 +1,14 @@
+body {
+    background-color: #131A1B;
+}
+
+pre {
+    border-style:solid;
+    border-width: 0px;
+    padding:0px;
+}
+
+code {
+    border-style:dotted;
+    border-width: 1px;
+}
