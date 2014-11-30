@@ -3,14 +3,18 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+<link rel="stylesheet" href="css/bootstrap.min.css">
 <link rel="stylesheet" href="css/screen.css">
+<link rel="stylesheet" href="css/solarized_dark.css">
 <link rel="stylesheet" href="css/template.css">
+
+<body onload="loadmenu()">
+
 <div class="container-fluid">
   <div class="row">
     <div class="col-xs-12 col-md-8">
       <div class="container-fluid">
-	<p>blah blah bloggiest blog</p>
+	<p>blah blah greathonu blog</p>
 
 <pre><code>(defun rust-save-compile-and-run-this ()
   (interactive)
@@ -36,31 +40,47 @@
       (lambda ()
         (define-key rust-mode-map (kbd "<C-f5>") 'rust-save-compile-and-run-this)))</code></pre>
 
-<p>this: <a href="posts/2014-08-24-my-first-blogpost.html">first post, post101!</a></p>
+<p>this: <a href="posts/2014-08-24-my-first-blogpost.html">first post, !</a></p>
 
 <p>and this chris</p>
 
       </div>
     </div>
-    <div class="col-xs-3 col-md-2">
-      <div class="container-fluid">
-	<h3>links</h3>
-	<a href="index.html">home</a>
-      </div>
-
-      <div class="container-fluid">
-	<h3>posts</h3>
-	<ul><li>post101</li><li>post102</li></ul>
-      </div>
+    <div id='ajax' class="col-xs-3 col-md-2">
     </div>
   </div>
 </div>
 
 
 
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
-<link rel="stylesheet" href="css/solarized_dark.css">
+<script src="js/bootstrap.min.js"></script>
+
 <script src="js/highlight.pack.js" type="text/javascript"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 
+<script>
+function loadmenu()
+{
+var xmlhttp;
+if (window.XMLHttpRequest)
+  {// code for IE7+, Firefox, Chrome, Opera, Safari
+  xmlhttp=new XMLHttpRequest();
+  }
+else
+  {// code for IE6, IE5
+  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+  }
+xmlhttp.onreadystatechange=function()
+  {
+  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+    {
+    document.getElementById("ajax").innerHTML=xmlhttp.responseText;
+    }
+  }
+xmlhttp.open("GET","menu.html",true);
+xmlhttp.send();
+}
+</script>
+
+</body>
 </html>
